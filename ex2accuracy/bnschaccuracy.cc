@@ -122,9 +122,9 @@ int main()
     
     zero_matrix(mu, 1, nx, 1, ny); 
  
-    sprintf(bufferc,"/Users/wujingwen/research/fluid_mechanics/2msavncac/msav+ncac/cacexample13componentaccuracy/dataout/datac.m");
-    sprintf(bufferc2,"/Users/wujingwen/research/fluid_mechanics/2msavncac/msav+ncac/cacexample13componentaccuracy/dataout/datac2.m");
-    sprintf(bufferc3,"/Users/wujingwen/research/fluid_mechanics/2msavncac/msav+ncac/cacexample13componentaccuracy/dataout/datac3.m");
+    sprintf(bufferc,"/datac.m");
+    sprintf(bufferc2,"/datac2.m");
+    sprintf(bufferc3,"/datac3.m");
    
     fc = fopen(bufferc,"w");
     fc2 = fopen(bufferc2,"w");
@@ -162,8 +162,8 @@ int main()
          
      }
        
-    myr = fopen("/Users/wujingwen/research/fluid_mechanics/2msavncac/msav+ncac/cacexample13componentaccuracy/dataout/Mene.m","w");
-    myq = fopen("/Users/wujingwen/research/fluid_mechanics/2msavncac/msav+ncac/cacexample13componentaccuracy/dataout/Oene.m","w");
+    myr = fopen("/Mene.m","w");
+    myq = fopen("/Oene.m","w");
     
     fprintf(myr,"%16.12f \n",EnEO);
     fprintf(myq,"%16.12f \n",EnEO);
