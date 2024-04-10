@@ -113,9 +113,7 @@ int main()
     H3 = dmatrix(0, nx+1, 0, ny+1);
     alp = dmatrix(0, nx+1, 0, ny+1); 
     
-    worku = dmatrix(0, nx, 1, ny);
-    workv = dmatrix(1, nx, 0, ny);
-    workp = dmatrix(1, nx, 1, ny);
+   
    
     ct = dmatrix(1, nx, 1, ny);
     sc = dmatrix(1, nx, 1, ny);
@@ -145,8 +143,7 @@ int main()
     mat_copy(nc, c, 1, nx, 1, ny);
     mat_copy(nc2, c2, 1, nx, 1, ny);
     
-   save as row//
-    
+   
     augmenc(c, nx, ny);
     augmenc(c2, nx, ny);
     augmenc(c3, nx, ny);
@@ -180,12 +177,7 @@ int main()
 
        r = Ev;
        orc = r;
-      /*  printf("Ev=%f\n",Ev);
-       if (std::isnan(Ev))
-        {
-        throw std::invalid_argument("wrong");
-        } */
-       
+
 
 
    ijloop{
@@ -194,11 +186,7 @@ int main()
       H2[i][j] = c2[i][j]*(c2[i][j]-0.5)*(c2[i][j]-1.0)/Ev;
       H3[i][j] = c3[i][j]*(c3[i][j]-0.5)*(c3[i][j]-1.0)/Ev;
 
-     /* 
-      if (std::isnan(alp[i][j]))
-        {
-        throw std::invalid_argument("wrong");
-        } */
+
         }
 
     lagrangeH(H1,nx,ny);
@@ -402,45 +390,6 @@ void initialization(double **c, double **c2, double **c3)
         c2[i][j] =  0.33+0.01*cos(2*pi*x)+0.02*cos(4*pi*x);
         c3[i][j] = 1.0 - c[i][j] - c2[i][j]; 
 
-
-    
-     /* c[i][j] = 0.33 + 0.01*(2.0*rand()/(float)RAND_MAX - 1.0);
-   
-    c2[i][j] = 0.33 + 0.01*(2.0*rand()/(float)RAND_MAX - 1.0);
-
-   c3[i][j] = 1.0 - c[i][j] - c2[i][j];  */
-
-      /*  c[i][j] = 0.5 + 0.5 * tanh(min(sqrt(pow(x - 1, 2) + pow(y - 0.5, 2)) - 0.22, y - 0.5) / gam);
-        c2[i][j] = 0.5 + 0.5 * tanh(-max(0.22 - sqrt(pow(x - 1, 2) + pow(y - 0.5, 2)), y - 0.5) / gam);
-        c3[i][j] = 1 - c[i][j] - c2[i][j];
- */
- 
-
- 
-    /* c[i][j]=0.5+0.5*tanh((0.25-sqrt(pow(x-1.26,2)+pow(y-0.5,2)))/gam);
-    c2[i][j]=0.5+0.5*tanh((0.25-sqrt(pow(x-0.74,2)+pow(y-0.5,2)))/gam);
-    c3[i][j]=1-c[i][j]-c2[i][j];  */
-
-
-     /*     c[i][j] = c2[i][j] = c3[i][j] = 0;
-
-        if (x >= 0.25 && x <= 0.5 && y >= 0.25 && y <= 0.58)
-            c[i][j] = 1.0;
-        if (x > 0.5 && x <= 0.75 && y >= 0.25 && y <= 0.58)
-            c2[i][j] = 1.0;
-        if (x >= 0.25 && x <= 0.75 && y > 0.58 && y <= 0.75)
-            c3[i][j] = 1.0;  //in this case ,we should add CC in r*/
-
-
-/*         c[i][j] =0.5+0.5*tanh(min(sqrt(pow(x-1,2)+pow(y-0.5,2))-0.3,y-0.5)/gam);
-        c2[i][j]=0.5+0.5*tanh(-max(0.3-sqrt(pow(x-1,2)+pow(y-0.5,2)),y-0.5)/gam);
-        c3[i][j]= 1-c[i][j]-c2[i][j]; */
-
-
-       /*  c2[i][j]=0.5+0.5*tanh((0.15-sqrt(pow(x-0.5,2)+pow(y-0.5,2)))/(2*sqrt(2)*gam));
-
-        c[i][j]= max(0.5+0.5*tanh((y-0.5)/(2*sqrt(2)*gam))-c2[i][j],0);
-        c3[i][j]= 1-c[i][j]-c2[i][j]; */
 
 
     }
